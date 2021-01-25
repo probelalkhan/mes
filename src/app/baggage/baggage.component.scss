@@ -1,0 +1,59 @@
+body{
+  width:100%;
+}
+nav{
+  margin: 12px 0;
+}
+
+.button{
+  margin: 6px 0;
+  width:auto;
+  height:65px;
+  background-color: #a0b1c3;
+  border-radius: 8px;
+  border: 1px solid #768487;
+  line-height: 65px;
+  text-align: center;
+}
+
+.button-danger{
+  background-color: red;
+}
+
+.nav-button{
+  float:left;
+  padding:0 24px;
+  margin:0 5px 0 0;
+}
+
+.main-box{
+  width:98%;
+  border:1px solid #788188;
+  background-color: #384b5a;
+  border-radius: 5px;
+  padding: 1%;
+}
+
+.num-pad{
+  width:280px;
+  height:450px;
+  border:2px solid white;
+  border-radius: 6px;
+}
+
+.num{
+  float:left;
+  width:80px;
+  height:102px;
+  background-color: #ffffff;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 98px;
+  border-radius: 5px;
+  margin:3px;
+  padding:2px;
+}
+
+.button-icon{
+  font-size: 42px; color: red; margin-top: 12px; float: left; margin-left: 12px;
+}

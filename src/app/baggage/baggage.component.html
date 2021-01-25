@@ -1,0 +1,186 @@
+<div class="container">
+    <div class="flex-container" fxLayout="row">
+      <img src="./assets/images/siemens.png" />
+      <label class="text-white">Current user: MesUser Inactivity timer: 00:09:58 Remaining session time: 07:12:05</label>
+      <div></div>
+    </div>
+
+    <div class="flex-container" fxLayout="row">
+      <nav>
+        <div class="button nav-button">
+          Log out
+        </div>
+
+        <div class="button nav-button">
+          Unload bag
+        </div>
+
+        <div class="button nav-button">
+          Mark tray for maintenance
+        </div>
+
+        <div class="button nav-button">
+          Print interline tag <span>F7</span>
+        </div>
+
+        <div class="button nav-button">
+          Print fallback tag
+        </div>
+
+        <div class="button nav-button">
+          Offline Mode
+        </div>
+
+        <div class="button nav-button">
+          Help
+        </div>
+      </nav>
+    </div>
+
+    <div class="flex-container" fxLayout="row">
+      <label class="text-white">NO_READ - scan bag tag</label>
+    </div>
+    <br />
+    <div class="main-box">
+      <div class="flex-container" fxLayout="row">
+        <div class="one" fxFlex="60">
+            <div fxLayout="row">
+              <div fxFlex="20">
+                <label class="text-white">Bagtag</label><br />
+                <input type="text" class="small"/>
+              </div>
+              <div fxFlex="15">
+                <label class="text-white">Carrier</label><br />
+                <input type="text" class="small"/>
+              </div>
+              <div fxFlex="15">
+                <label class="text-white">Flight</label><br />
+                <input type="text" class="small"/>
+              </div>
+              <div fxFlex="50">
+                <label class="text-white">Sort Destination</label><br />
+                <input type="text" class="small"/>
+              </div>
+            </div>
+
+            <div fxLayout="row">
+              <table border="1" class="text-white" style="width:100%; text-align: center;">
+                <thead>
+                  <tr>
+                    <th>Day</th>
+                    <th>Carrier</th>
+                    <th>Flight</th>
+                    <th>STD</th>
+                    <th>Destination</th>
+                    <th>O1</th>
+                    <th>O2</th>
+                    <th>Class</th>
+                    <th>Sort Destination</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                      <td>11-18</td>
+                      <td>OZ</td>
+                      <td>9122</td>
+                      <td>10:11</td>
+                      <td>NGO</td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td>CA32</td>
+                    </tr>
+                </tbody>
+              </table>
+            </div>
+        </div>
+
+        <div class="two" fxFlex="25" fxLayoutAlign="right center">
+
+          <div class="num-pad">
+            <div class="num">7</div>
+            <div class="num">8</div>
+            <div class="num">9</div>
+            <div class="num">4</div>
+            <div class="num">5</div>
+            <div class="num">6</div>
+            <div class="num">1</div>
+            <div class="num">2</div>
+            <div class="num">3</div>
+            <div class="num">0</div>
+            <div class="num">-</div>
+            <div class="num">Clear</div>
+          </div>
+
+        </div>
+
+        <div class="three" fxFlex="15">
+
+          <div class="button" style="font-size: 22px;">
+            <i class="fas fa-backspace button-icon" ></i>Backspace
+          </div>
+
+          <div class="button" style="font-size: 22px;">
+            <i class="fas fa-window-close button-icon"></i>Delete
+          </div>
+
+          <div class="button" style="font-size: 22px;">
+            <i class="fas fa-keyboard button-icon"></i>Keyboard
+          </div>
+
+          <div class="button" style="font-size: 22px; height:200px; line-height: 200px;">
+            <i class="fas fa-check-square button-icon" style="color:green; margin-top: 78px;"></i>Ok
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="flex-container">
+        <div class="simple-keyboard"></div>
+      </div>
+    </div>
+
+    <script>
+  let Keyboard = window.SimpleKeyboard.default;
+
+  let keyboard = new Keyboard({
+    onChange: input => onChange(input),
+    onKeyPress: button => onKeyPress(button)
+  });
+
+  /**
+   * Update simple-keyboard when input is changed directly
+   */
+  document.querySelector(".input").addEventListener("input", event => {
+    keyboard.setInput(event.target.value);
+  });
+
+  console.log(keyboard);
+
+  function onChange(input) {
+    document.querySelector(".input").value = input;
+    console.log("Input changed", input);
+  }
+
+  function onKeyPress(button) {
+    console.log("Button pressed", button);
+
+    /**
+     * If you want to handle the shift and caps lock buttons
+     */
+    if (button === "{shift}" || button === "{lock}") handleShift();
+  }
+
+  function handleShift() {
+    let currentLayout = keyboard.options.layoutName;
+    let shiftToggle = currentLayout === "default" ? "shift" : "default";
+
+    keyboard.setOptions({
+      layoutName: shiftToggle
+    });
+  }
+
+    </script>
+  </div>
+

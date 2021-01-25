@@ -1,0 +1,58 @@
+<div class="bg-dark w-100 h-100">
+  <div class="materialContainer">
+    <form class="box" #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+      <div class="title pb-4">MES Login</div>
+
+      <div class="w-100">
+        <mat-form-field appearance="outline" class="w-100">
+          <mat-label>Username</mat-label>
+          <input
+            required
+            [(ngModel)]="loginModel.username"
+            matInput
+            placeholder="Username"
+            [matKeyboard]="'username'"
+            name="username"
+            #name="ngModel"
+            (click)="clearError()"
+          />
+          <mat-error>Username is required</mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="w-100">
+        <mat-form-field appearance="outline" class="w-100">
+          <mat-label>Password</mat-label>
+          <input
+            required
+            [(ngModel)]="loginModel.password"
+            matInput
+            [type]="hide ? 'password' : 'text'"
+            placeholder="Password"
+            [matKeyboard]="'password'"
+            name="password"
+            #password="ngModel"
+            ngModel
+            (click)="clearError()"
+          />
+          <mat-icon matSuffix (click)="hide = !hide">{{
+            hide ? "visibility_off" : "visibility"
+          }}</mat-icon>
+          <mat-error>Password is required</mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="d-flex">
+        <small class="text-danger text-center w-100" *ngIf="errorMessage">{{
+          errorMessage
+        }}</small>
+      </div>
+
+      <div class="button login">
+        <button type="submit">
+          <span>GO</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

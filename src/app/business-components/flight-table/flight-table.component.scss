@@ -1,0 +1,17 @@
+$text-color: black;
+$background-color: white;
+
+table {
+  width: 100%;
+}
+
+table th {
+  background-color: $background-color;
+  font-weight: bold;
+  color: $text-color;
+  text-align: center;
+}
+
+div.mat-sort-header-arrow {
+  color: $text-color;
+}
